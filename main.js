@@ -39,8 +39,8 @@ function validateForm() {
 }
 
 function switchBilling(e) {
-  billingPlan = e.target.checked;
-  if (billingPlan) {
+  
+  if (e.target.checked) {
     monthly.classList.toggle("disable");
     monthly.classList.remove("active");
     yearly.classList.remove("disable");
