@@ -16,6 +16,7 @@ const addOnsPrice = document.querySelectorAll(".addons_price");
 const summary = document.querySelector(".summary_container");
 const addOneResultPrice = document.querySelector(".summary_addone");
 const totalPrice = document.querySelector(".total_price");
+const sidebar = document.querySelector(".left");
 
 const fullNameRegex = /^[A-Z][a-zA-Z]{1,}\s[A-Z][a-zA-Z]{1,}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -182,6 +183,8 @@ const goToPage = () => {
   if (navigationPage === 5) {
     btn.style.display = "none";
     backBtn.style.display = "none";
+    sidebar.style.display = "none"
+    
   }
 
   if (navigationPage > 1) {
