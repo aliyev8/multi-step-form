@@ -1,0 +1,586 @@
+@font-face {
+  font-family: regular;
+  src: url(./assets/fonts/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+  font-family: medium;
+  src: url(./assets/fonts/Ubuntu-Medium.ttf);
+}
+
+@font-face {
+  font-family: bold;
+  src: url(./assets/fonts/Ubuntu-Bold.ttf);
+}
+
+:root {
+  --marine-blue: #1c3a4f;
+  --purplish-blue: #6e4eff;
+  --pastel-blue: #a2aaff;
+  --light-blue: #d0e1f9;
+  --strawberry-red: #ff5c6d;
+  --btn-background: #174a8a;
+
+  --cool-gray: #aeb9c5;
+  --light-gray: #e6eaf2;
+  --magnolia: #fafaff;
+  --alabaster: #fcfcfe;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--light-blue);
+}
+p,
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 4fr 10px;
+  grid-template-rows: auto auto;
+  grid-template-areas: "left right";
+  padding: 16px;
+  background-color: var(--white);
+  border-radius: 16px;
+  position: relative;
+}
+
+.left {
+  grid-area: left;
+  position: relative;
+}
+.left .mobile {
+  display: none;
+}
+
+.left .steps {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.left .steps .step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.left .steps .step .num {
+  background-color: transparent;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: regular;
+  font-weight: 400;
+  color: var(--white);
+  font-size: 18px;
+  border: 1px solid var(--white);
+}
+
+.active {
+  background-color: var(--light-blue) !important;
+  color: var(--marine-blue) !important;
+}
+
+.left .steps .step .step_number {
+  color: var(--cool-gray);
+  font-family: regular;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.left .steps .step .step_desc {
+  color: var(--alabaster);
+  font-family: medium;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.right {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 50px;
+  justify-content: space-between;
+}
+
+.right .title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.right .title h3 {
+  font-family: bold;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--marine-blue);
+}
+
+.right .title p {
+  font-family: regular;
+  font-size: 16px;
+  color: var(--cool-gray);
+}
+
+.right .input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin-top: 32px;
+}
+
+.right .input_container .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.right .input_container .field label {
+  color: var(--marine-blue);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: medium;
+}
+.right .input_container .field .label_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.right .input_container .field .label_container .error {
+  color: var(--strawberry-red);
+  font-family: medium;
+  font-size: 12px;
+  display: none;
+}
+
+.right .input_container .field input {
+  color: var(--marine-blue);
+  font-size: 14px;
+  font-weight: 400;
+  font-family: regular;
+  border: 1px solid var(--cool-gray);
+  border-radius: 8px;
+  padding: 12px 8px;
+  outline: none;
+}
+
+.right .input_container .field input:focus {
+  outline: 1px solid var(--purplish-blue);
+}
+
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 60px;
+  bottom: 20px;
+  gap: 100px;
+}
+
+.btn_container .submit {
+  background-color: var(--btn-background);
+  padding: 12px 16px;
+  font-family: medium;
+  font-weight: 500;
+  color: var(--alabaster);
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn_container .back {
+  background-color: var(--btn-background);
+  padding: 12px 16px;
+  font-family: medium;
+  font-weight: 500;
+  color: var(--alabaster);
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn_container button:disabled {
+  background-color: var(--cool-gray) !important;
+}
+
+#page2 {
+  display: none;
+}
+
+.billing_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "arcade advanced pro";
+  gap: 12px;
+  margin-top: 39px;
+}
+
+.billing_container .name {
+  font-family: medium;
+  color: var(--marine-blue);
+}
+
+.billing_container .price {
+  font-family: regular;
+  color: var(--cool-gray);
+}
+
+.billing_container .plan {
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--cool-gray);
+  border-radius: 8px;
+  padding: 26px 8px;
+  cursor: pointer;
+  transition: 250ms all;
+}
+
+.billing_container .price_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.billing_container .free_try {
+  font-family: regular;
+  font-size: 14px;
+  color: var(--marine-blue);
+  display: none;
+}
+
+.billing_container .show_try {
+  display: block !important;
+}
+
+.billing_container .plan:hover {
+  border: 1px solid var(--purplish-blue);
+}
+
+.arcade {
+  grid-area: arcade;
+}
+
+.advanced {
+  grid-area: advanced;
+}
+
+.pro {
+  grid-area: pro;
+}
+
+.switch_plan {
+  background-color: var(--light-blue);
+  grid-column: 1 / span 3;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 39px;
+}
+
+.switch_plan input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  display: none;
+}
+.switch {
+  display: flex;
+  align-items: center;
+}
+
+.switch label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 40px;
+  height: 18px;
+  background: var(--btn-background);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.switch label:after {
+  content: "";
+  position: absolute;
+  top: 1.5px;
+  left: 1px;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + label {
+  background: var(--btn-background);
+}
+
+.switch input:checked + label:after {
+  left: calc(100% - 1px);
+  transform: translateX(-100%);
+}
+
+.switch label:active:after {
+  width: 20px;
+}
+
+.switch_plan .monthly,
+.yearly {
+  font-family: regular;
+  font-size: 14px;
+}
+
+.switch_plan .active {
+  color: var(--marine-blue) !important;
+}
+
+.switch_plan .disable {
+  color: var(--cool-gray) !important;
+}
+
+.billing_container .selected {
+  border: 1px solid var(--purplish-blue);
+}
+
+#page3 {
+  display: none;
+}
+
+.addons_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "arcade" "advanced" "pro";
+  gap: 12px;
+  margin-top: 39px;
+}
+.addons_container .addone {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--cool-gray);
+  border-radius: 8px;
+  padding: 16px 8px;
+  cursor: pointer;
+  transition: 250ms all;
+  grid-column: 1 / span 3;
+}
+
+.addons_container .name {
+  font-family: medium;
+  color: var(--marine-blue);
+}
+
+.addons_container .price {
+  font-family: regular;
+  color: var(--cool-gray);
+}
+
+.addons_container .addons_pack {
+  display: flex;
+  gap: 30px;
+}
+
+.addons_container .addons_price {
+  font-family: regular;
+  color: var(--purplish-blue);
+}
+
+.addons_container .selected {
+  border: 1px solid var(--purplish-blue);
+}
+#page4 {
+  display: none;
+}
+.summary_container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: "plan" "addone" "total";
+  gap: 30px;
+  border-radius: 8px;
+  margin-top: 39px;
+}
+
+.summary_container .summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  font-family: regular;
+  border: 1px solid var(--pastel-blue);
+  border-radius: 8px;
+}
+
+.summary_container .summary_total {
+  background: var(--white);
+}
+
+.summary_container .summary_total :first-child {
+  color: var(--cool-gray);
+}
+.summary_container .summary_total :last-child {
+  color: var(--purplish-blue);
+}
+
+#page5 {
+  display: none;
+}
+
+.finish_container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "plan"
+    "addone"
+    "total";
+  justify-items: center;
+  gap: 19px;
+}
+
+.finish_container .finish_img {
+  grid-area: plan;
+}
+
+.finish_container .finish_title {
+  grid-area: addone;
+  font-family: bold;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--marine-blue);
+}
+
+.finish_container .finish_desc {
+  grid-area: total;
+  font-family: regular;
+  color: var(--cool-gray);
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: var(--light-blue);
+    display: block !important;
+    height: auto !important;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 4fr 10px;
+    grid-template-rows: auto auto;
+    grid-template-areas: "left" "right";
+    padding: 0;
+    background-color: transparent !important;
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .left {
+    grid-column: 1 / span 3;
+  }
+
+  .left .destkop {
+    display: none;
+  }
+  .left .mobile {
+    display: block;
+    width: 100%;
+  }
+
+  .left .steps {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    width: 100%;
+    top: 30px;
+    left: 0;
+  }
+  .left .steps .step .num {
+    height: 30px;
+    width: 30px;
+    font-size: 12px;
+  }
+
+  .step_number,
+  .step_desc {
+    display: none;
+  }
+  .right {
+    background-color: var(--white);
+    border-radius: 16px;
+    position: absolute;
+    top: -73px;
+    margin: 0 6px;
+    grid-column: 1 / span 3;
+  }
+
+  .right .title h3 {
+    font-family: medium;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--marine-blue);
+  }
+
+  .right .title p {
+    font-family: regular;
+    font-size: 16px;
+    color: var(--cool-gray);
+  }
+  .right .input_container .field input {
+    border-radius: 4px;
+  }
+
+  .btn_container {
+    position: fixed;
+    background: white;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+  }
+
+  .btn_container button {
+    margin-right: 16px;
+  }
+
+  .billing_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "arcade" "advanced" "pro";
+    gap: 12px;
+    margin-top: 39px;
+  }
+
+  .billing_container .plan {
+    grid-column: 1 / span 3;
+    flex-direction: row;
+  }
+
+  .back {
+    margin-left: 38px;
+  }
+}

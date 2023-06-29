@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Frontend Mentor | Multi-step form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <img
+          class="destkop"
+          src="./assets/images/bg-sidebar-desktop.svg"
+          alt=""
+        />
+        <img
+          class="mobile"
+          src="./assets/images/bg-sidebar-mobile.svg"
+          alt=""
+        />
+        <div class="steps">
+          <div class="step step1">
+            <div class="num active">1</div>
+            <div class="text">
+              <div class="step_number">Step 1</div>
+              <div class="step_desc">Your info</div>
+            </div>
+          </div>
+          <div class="step step2">
+            <div class="num">2</div>
+            <div class="text">
+              <div class="step_number">Step 2</div>
+              <div class="step_desc">Select plan</div>
+            </div>
+          </div>
+          <div class="step step3">
+            <div class="num">3</div>
+            <div class="text">
+              <div class="step_number">Step 3</div>
+              <div class="step_desc">Add-ons</div>
+            </div>
+          </div>
+          <div class="step step4">
+            <div class="num">4</div>
+            <div class="text">
+              <div class="step_number">Step 4</div>
+              <div class="step_desc">Summary</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <!-- Step 1 start -->
+        <div id="page1">
+          <div class="title page1">
+            <h3>Personal info</h3>
+            <p>Please provide your name, email address, and phone number.</p>
+          </div>
+          <div class="input_container">
+            <div class="field">
+              <div class="label_container">
+                <label for="name">Name</label>
+                <span class="error name_error">This field is required</span>
+              </div>
+              <input id="name" type="text" placeholder="e.g. Stephen King" />
+            </div>
+            <div class="field">
+              <div class="label_container">
+                <label for="email">Email address</label>
+                <span class="error email_error">This field is required</span>
+              </div>
+              <input
+                id="email"
+                type="email"
+                placeholder="e.g. stephenking@lorem.com"
+              />
+            </div>
+            <div class="field">
+              <div class="label_container">
+                <label for="phone">Phone Number</label>
+                <span class="error phone_error">This field is required</span>
+              </div>
+              <input
+                id="phone"
+                type="number"
+                placeholder="e.g. +1 234 567 890"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Step 1 end -->
+
+        <!-- Step 2 start -->
+        <div id="page2">
+          <div class="title page2">
+            <h3>Select your plan</h3>
+            <p>You have the option of monthly or yearly billing.</p>
+          </div>
+
+          <div class="billing_container">
+            <label
+              onclick="selectPlan('arcade')"
+              for="arcade"
+              class="plan arcade selected"
+            >
+              <img
+                height="32px"
+                width="32px"
+                src="./assets/images/icon-arcade.svg"
+              />
+              <div class="price_container">
+                <div class="name">Arcade</div>
+                <div class="price arcade_price">$9/mo</div>
+                <div class="free_try">2 months free</div>
+              </div>
+            </label>
+
+            <label
+              onclick="selectPlan('advanced')"
+              for="advanced"
+              class="plan advanced"
+            >
+              <img
+                height="32px"
+                width="32px"
+                src="./assets/images/icon-advanced.svg"
+              />
+              <div class="price_container">
+                <div class="name">Advanced</div>
+                <div class="price advanced_price">$12/mo</div>
+                <div class="free_try">2 months free</div>
+              </div>
+            </label>
+
+            <label onclick="selectPlan('pro')" for="pro" class="plan pro">
+              <img
+                height="32px"
+                width="32px"
+                src="./assets/images/icon-pro.svg"
+              />
+              <div class="price_container">
+                <div class="name">Pro</div>
+                <div class="price pro_price">$15/mo</div>
+                <div class="free_try">2 months free</div>
+              </div>
+            </label>
+
+            <div class="switch_plan">
+              <span class="monthly active">Monthly</span>
+              <div class="switch">
+                <input type="checkbox" id="switch" /><label for="switch"
+                  >Toggle</label
+                >
+              </div>
+              <span class="yearly disable">Yearly</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 end -->
+
+        <!-- Step 3 start -->
+        <div id="page3">
+          <div class="title page2">
+            <h3>Pick add-ons</h3>
+            <p>Add-ons help enhance your gaming experience.</p>
+          </div>
+
+          <div class="addons_container">
+            <label
+              onclick="selectAddOns('online')"
+              for="online"
+              class="addone online"
+            >
+              <div class="addons_pack">
+                <input class="addone_check" type="checkbox" id="online" />
+                <div>
+                  <div class="name">Online service</div>
+                  <div class="price">Access to multiplayer games</div>
+                </div>
+              </div>
+              <div class="addons_price service">+$1/mo</div>
+            </label>
+
+            <label
+              onclick="selectAddOns('larger')"
+              for="larger"
+              class="addone larger"
+            >
+              <div class="addons_pack">
+                <input class="addone_check" type="checkbox" id="larger" />
+                <div>
+                  <div class="name">Larger storage</div>
+                  <div class="price">Extra 1TB of cloud save</div>
+                </div>
+              </div>
+              <div class="addons_price larger">$2/mo</div>
+            </label>
+
+            <label
+              onclick="selectAddOns('custom')"
+              for="custom"
+              class="addone custom"
+            >
+              <div class="addons_pack">
+                <input class="addone_check" type="checkbox" id="custom" />
+                <div>
+                  <div class="name">Customizable profile</div>
+                  <div class="price">Custom theme on your profile</div>
+                </div>
+              </div>
+
+              <div class="addons_price custom">$2/mo</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3 end -->
+
+        <!-- Step 4 start -->
+        <div id="page4">
+          <div class="title page2">
+            <h3>Finishing up</h3>
+            <p>Double-check everything looks OK before confirming.</p>
+          </div>
+
+          <div class="summary_container"></div>
+        </div>
+
+        <!-- Step 4 end -->
+
+        <!-- Step 5 start -->
+        <div id="page5">
+          <div class="title page2"></div>
+
+          <div class="finish_container">
+            <div class="finish_img">
+              <img src="./assets/images/icon-thank-you.svg" alt="" />
+            </div>
+            <div class="finish_title">Thank you!</div>
+            <div class="finish_desc">
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at support@loremgaming.com.
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 end -->
+      </div>
+      <div class="btn_container">
+        <button disabled="true" onclick="goBack()" class="back">Back</button>
+        <button onclick="goToPage()" class="submit">Next Step</button>
+      </div>
+    </div>
+
+    <script src="./main.js" />
+  </body>
+</html>
