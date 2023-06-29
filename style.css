@@ -583,4 +583,12 @@ h3 {
   .back {
     margin-left: 38px;
   }
+
+  .finish_container{
+        display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    gap: 19px;
+    align-items: center;
+  }
 }
